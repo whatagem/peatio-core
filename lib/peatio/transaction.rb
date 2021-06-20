@@ -40,8 +40,10 @@ module Peatio #:nodoc:
     #   the transaction amount has been successfully transferred
     #
     #   failed - the transaction is failed in the blockchain.
+    #
+    #   rejected - the transaction is rejected by user.
 
-    STATUSES = %w[success pending failed].freeze
+    STATUSES = %w[success pending failed rejected].freeze
 
     DEFAULT_STATUS = 'pending'.freeze
 
@@ -52,6 +54,10 @@ module Peatio #:nodoc:
     # @!attribute [rw] txout
     # return [Integer] transaction number in send-to-many request
     attr_accessor :txout
+
+    # @!attribute [rw] from_address
+    # return [Array<String>] transaction source addresses
+    attr_accessor :from_addresses
 
     # @!attribute [rw] to_address
     # return [String] transaction recepient address
@@ -68,6 +74,10 @@ module Peatio #:nodoc:
     # @!attribute [rw] currency_id
     # return [String] transaction currency id
     attr_accessor :currency_id
+
+    # @!attribute [rw] options
+    # return [JSON] transaction options
+    attr_accessor :options
 
     validates :to_address,
               :amount,
