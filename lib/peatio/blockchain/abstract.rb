@@ -47,6 +47,9 @@ module Peatio #:nodoc:
       #   for more info see (https://support.exodus.io/article/664-bitcoin-cash-address-format)
       SUPPORTED_FEATURES = %i[case_sensitive cash_addr_format].freeze
 
+      # List of bitcoin scripthash types NOT supported by peatio.
+      BITCOIN_UNSUPPORTED_SCRIPTHASH_TYPES = %w[nulldata nonstandard multisig].freeze
+
 
       # Current blockchain settings for performing API calls and building blocks.
       #
